@@ -1,0 +1,60 @@
+spring:
+  application:
+    name: qrcode
+  datasource:
+    druid:
+      stat-view-servlet:
+        login-password: 123456
+        login-username: admin
+
+    dynamic:
+      primary: master
+      datasource:
+        master:
+          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql://10.105.128.53:8066/QRCODE_DB?characterEncoding=utf-8&useSSL=false
+          username: root
+          password: 123456
+        slave:
+#          driver-class-name: oracle.jdbc.driver.OracleDriver
+#          url: jdbc:oracle:thin:@192.168.132.110:1521:helowin
+#          username: itest
+#          password: 123456
+          driver-class-name: com.ibm.db2.jcc.DB2Driver
+          url: jdbc:db2://10.105.128.74:50000/yulv6db
+          username: ylqg
+          password: ylqg0801DB
+        sqlserver:
+          driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+          url: jdbc:sqlserver://10.105.132.26;databaseName=BARCODEPRINTER
+          username: sa
+          password: sa
+        bar:
+          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql://10.105.128.51:3306/qrcode_tracing?characterEncoding=utf-8&useSSL=false
+          username: root
+          password: 1q2w3e!Q@W#E
+
+  httpclient:
+    connectTimeout: 2000
+    socketTimeout: 10000
+    agent: agent
+    maxPerRoute: 10
+    maxTotal: 50
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.mobiusvision.qrcode.entity
+  configuration:
+    map-underscore-to-camel-case: false
+
+logging:
+  file: ./logs/core.log
+  root: INFO
+
+wx:
+  public:
+    appid: wx82bc9cbd4a505201
+    secret: 98843937da9c3991d6ce1cc59c802898
+
+

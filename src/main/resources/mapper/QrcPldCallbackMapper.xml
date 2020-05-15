@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobiusvision.qrcode.mapper.QrcPldCallbackMapper">
+
+    <select id="selectCountByQrcode" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM qrc_pld_callback
+        WHERE DATE_FORMAT(CODING_TIME,'%Y-%m-%d %H:%i:%s') >= #{begin}
+        AND DATE_FORMAT(CODING_TIME,'%Y-%m-%d %H:%i:%s') &lt;= #{end}
+        AND QRCODE = #{qrcode}
+    </select>
+
+    <update id="updateCheckTimes">
+        UPDATE qrc_pld_callback SET CHECK_TIMES = CHECK_TIMES + 1 WHERE ID = #{id}
+    </update>
+
+</mapper>

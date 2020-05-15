@@ -1,0 +1,101 @@
+bp_order_barcode  执行订单条烟条码表
+ob_id 主键
+ob_uuid 订单唯一标识
+ob_sequence条码顺序号
+ob_sort_date分拣日期
+ob_cig_derive_code 件烟派生码
+ob_custom_info 条烟码段自定义信息
+ob_retailer_code 零售户代码
+ob_bcig_barcode条烟码段
+
+
+bp_order_cig_info 执行订单明细信息表
+oci_id id 主键 
+oci_uuid 订单唯一标识
+oci_cig_brand  卷烟代码
+oci_cig_trademark 卷烟名称 
+oci_is_abnormal 是否异性烟
+oci_ is_print  是否打码 （0 是，1否，默认零）
+oci_order_num 数量(条) 
+oci_order_numq 数量（万支）
+
+
+bp_order_info   执行订单基本信息表
+oi_id 主键
+oi_uuid 订单唯一标识 
+oi_b_uuid 批次唯一标识
+oi_b_code 批次编号
+oi_b_type 批次类型  （0-正常批次，1-换货批次）
+oi_ischangr_sline 是否换分拣线 （0-是，否）
+oi_dl_uuid线路唯一标识 
+oi_dl_code 线路编号
+oi_dl_name线路名称 
+oi_sline_code分拣线编号 
+oi_sline_name 分拣线名称
+oi_sequence 订单顺序号
+oi_code 订单号
+oi_retaller_code 零售户代码
+oi_retailer_name 零售户名称
+oi_date 订单日期 
+oi_sort_date 分拣日期 
+oi_cig_flag整件 标识 （0是，1否）
+oi_all_num 订单量（条）
+oi_all_num1 订单量（万支）
+oi_normal_num 正常包装条烟数量     非异性烟数量 
+oi_custom_info 条烟码段自定义信息    由分拣中心控制机确定
+oi_check_num  实物检测量 
+oi_send_num 条码发送量 
+oi_print_num 成功打码量 
+oi_resel_order_num 定位打码次数
+oi_start_time 订单启动时间
+oi_end_time 批量完成时间
+oi_state 状态 （0未开始，1-正打印，2.订单已切换3批次已完成）
+oi_send_state  回送状态 （0未回送，1已回送）
+oi_self_update_time 本地更新时间
+oi_sub_update_time 下级更新时间 
+oi_self_sequence 自定义订单顺序号  （默认0，按照批次从1开始）
+
+
+
+
+bp_dist_line  (配送线路信息表)
+
+dl_id 主键 
+dl_uuid 线路唯一标识
+dl_sort_date 分拣日期
+dl_b_uuid 批次唯一标识
+dl_b_code 批次编号
+db_b_type 批次类型
+dl_code 线路编号
+dl_name 线路名称
+dl_sequence 线路顺序
+dl_order_num 订单数据（个）
+dl_print_num 订单打码数量（个）
+dl_start_time  批次完成时间 
+dl_end_time 批次完成时间 
+dl_state 状态 （0-未开始，1-执行中，2-批次已完成）
+dl_send_state 回送状态  （0-未回送 1-已回送）
+dl_self_update_tlme 本地更新时间
+dl_sub_update_time 下级更新时间
+
+
+bp_batch   分拣批次表一
+b_id   主键 
+b_uuid 批次唯一标识 
+b_sort_data 分拣日期
+b_sequence 批次顺序号
+b_code 批次类型 (0正常批次，1，换货批次)
+b_type  批次类型
+b_is_change_sline 是否换分拣线 
+b_sline_code 分拣线编号 
+b_order_num 订单数量 (个)
+b_shoulid_send_num 应发送订单数量（个）
+b_this_send_num  本次发送订单数零（个）
+b_all_recv_num 订单接受数量 
+b_print_num 订单打码数量（个）
+b_start_time 批次启动时间 
+b_end_time 批次完成时间 
+b_state 状态   0 导入中  1导入完成  2 执行中  3 执行完成  
+b_send_state 回送状态  0-未回送 1-已回送
+b_self_update_time  本地更新时间 
+b_sub_update_time 下级更新时间  
